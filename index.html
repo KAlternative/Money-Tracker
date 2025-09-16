@@ -11,6 +11,25 @@
             <h1><i class="fas fa-chart-line"> Money Tracker</i></h1>
             <p>Take control of your finances with smart tracking and insights.</p>
         </header>
+
+        <div class="main-grid">
+            <div class="card balance-section">
+                <h2><i class="fas fa-wallet"></i> Current Balance</h2>
+                <div class="balance-amount" id="balance">0.00</div>
+                <div class="balance-stats">
+                    <div class="stat-item">
+                        <div><i class="fas fa-arrow-up income"> Total Income</i></div>
+                        <div class="stat-amount income" id="totalIncome">0.00</div>
+                        <div class="transaction-meta" id="incomeCount">0 transactions</div>
+                    </div>
+                    <div class="stat-item">
+                        <div><i class="fas fa-arrow-down expense"></i>Total Expenses</div>
+                        <div class="stat-amount expense" id="totalExpense">0.00</div>
+                        <div class="transaction-meta" id="expenseCount">0 transactions</div>
+                    </div>
+                </div>
+            </div> 
+        </div>
     </div>
 </body>
 </html>
