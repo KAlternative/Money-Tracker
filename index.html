@@ -66,6 +66,109 @@
                 </form>
             </div>
         </div>
+
+        <div class="charts-sections">
+            <div class="card">
+                <h3><i class="fas fa-chart-line"></i> Balance History</h3>
+                <button class="chart-toggle" id="balanceChartToggle">
+                    <i class="fas fa-chart-line"></i> Show Balance Chart
+                </button>
+
+                <canvas class="chart-canvas" id="balanceChart"></canvas>
+                <div class="tooltip" id="balanceTooltip"></div>
+            </div>
+
+            <div class="card">
+                <h3><i class="fas fa-chart-pie"></i> Expense Breakdown</h3>
+                <button class="chart-toggle" id="pieChartToggle">
+                    <i class="fas fa-chart-pie"></i> Show Expense Breakdown
+                </button>
+                <canvas class="chart-canvas" id="pieChart"></canvas>
+                <div class="toolTip" id="pieTooltip"></div>
+            </div>
+        </div>
+
+        <div class="card transactions-section">
+            <div class="transactions-header">
+                <h3><i class="fas fa-list"></i> Transaction History
+                </h3>
+
+                <div class="search-filter">
+                    <input type="text" class="search-input" id="searchInput" placeholder="Search transactions...">
+                    <select name="filter-select" id="categoryFilter">
+                        <option value="">All categories</option>
+                    </select>
+
+                    <select name="filter-select" id="typeFilter">
+                        <option value="">All types</option>
+                        <option value="income">Income</option>
+                        <option value="expense">Expense</option>
+                    </select>
+
+                    <button class="btn btn-secondary" id="exportBtn">
+                        <i class="fas fa-download"></i> Export CSV
+                    </button>
+
+                    <button class="btn btn-danger" id="clearAllBtn">
+                        <i class="fas fa-trash"></i> Clear All
+                    </button>
+                </div>
+            </div>
+
+            <div class="transactionList">
+                <div class="empty-state">
+                    <i class="fas fa-recipt"></i>
+                    <h4>No transactions yet</h4>
+                    <p>Add your first transaction to get started!</p>
+                </div>
+            </div>
+        </div>
     </div>
+
+    <div class="modal" id="editModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3><i class="fas fa-edit"></i> Edit Transaction
+                </h3>
+                <button class="close-btn" id="closeEditModal">&times;</button>
+            </div>
+            <form action="editForm">
+                <div class="form-group">
+                    <label for="editDescription">Description</label>
+                    <input type="text" id="editDescription" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="editAmount">Amount</label>
+                    <input type="number" id="editAmount" step="1" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="editCategory">Category</label>
+                    <select id="editCategory" required>
+                        <option value="">Select category...</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="editType">Type</label>
+                    <select id="editType" required>
+                        <option value="income">Income</option>
+                        <option value="expense">Expense</option>
+                    </select>
+                </div>
+
+                <div style="display: flex; gap: 10px;">
+                    <button type="submit" class="btn btn-success">
+                        <i class="fas fa-save"></i> Save Changes
+                    </button>
+                    <button type="button" class="btn btn-secondary" id="cancelEdit">
+                        <i class="fas fa-times"></i> Cancel
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
 </body>
 </html>
